@@ -33,6 +33,11 @@ a {
   color: #bdbdbd;
 }
 
+footer {
+  text-align: center;
+  color: #bdbdbd;
+}
+
 .left-nav {
   display: flex;
   justify-content: center;
