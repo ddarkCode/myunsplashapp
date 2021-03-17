@@ -1,0 +1,44 @@
+<%- include('header'); -%>
+    <main>
+      <% images.forEach(image => { %>
+      <div class="box">
+		  <img class="image" src="<%= image.src %> " alt="<%= image.name %> " />
+		  <span class="image-name"><%= image.name %> </span>
+		
+			<button class="delete-button" >delete</button>
+		
+		<form class="delete-form" action="/delete" method="post">
+		<h3>Are you sure?</h3>
+		<label for="">Password</label>
+		<input type="password" name="password">
+		<input type="hidden" name="id" value="<%=image._id%>">
+		<div>
+		  <button class="cancel"><a href="/">Cancel</a></button>
+      <button class="delete">delete</button>
+	 </div>
+	</form>
+	  </div>
+      <% }) %>
+
+	  <form class="add-form" action="/add" method="post">
+		<h3>Add a new photo</h3>
+      <label for="name">Label</label>
+      <input type="text" name="name" id="name" placeholder="Suspendisse elit massa" />
+      <label for="source">Photo</label>
+      <input
+        type="text"
+        id="source"
+        name="source"
+        placeholder="https://images.unsplash.com/photo-1584395630827-860eee694d7b?ixlib=r..."
+      />
+	 <div>
+		  <button class="cancel"><a href="/">Cancel</a></button>
+      <button class="submit">Submit</button>
+	 </div>
+    </form>
+
+    </main>
+
+	<script src="javascript/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,262 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  position: relative;
+  padding: 2% 10%;
+}
+
+header {
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2% 0 2% 0;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  padding: 2% 0 2% 0;
+  position: relative;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #bdbdbd;
+}
+
+.left-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 12px;
+  color: #333333;
+}
+
+.search {
+  width: 300px;
+  height: 55px;
+  border: 1px solid #bdbdbd;
+  filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));
+  border-radius: 12px;
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  color: #bdbdbd;
+}
+
+.add-button {
+  width: 137px;
+  height: 55px;
+  background: #3db46d;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  color: #fff;
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 19px;
+  border: none;
+  outline: none;
+}
+
+main img {
+  object-fit: cover;
+  border-radius: 16px;
+  width: 300px;
+  height: 400px;
+
+  /* object-fit: cover; */
+
+  /* width: 100%;
+  height: 400px; */
+  /*
+  height: auto;
+  aspect-ratio: attr(width) / attr(height); */
+}
+
+.box {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: bold;
+  position: relative;
+
+  width: 300px;
+  height: 400px;
+}
+
+.image-name {
+  font-size: 18px;
+  line-height: 22px;
+
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  visibility: hidden;
+
+  color: #ffffff;
+}
+.delete-button {
+  width: 63px;
+  height: 23px;
+  border: 1px solid #eb5757;
+  border-radius: 38px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  visibility: hidden;
+  font-size: 10px;
+  line-height: 12px;
+  text-transform: lowercase;
+  background-color: transparent;
+  outline: none;
+
+  color: #eb5757;
+}
+
+.add-form {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  width: 620px;
+  height: 367.2px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding-left: 10px;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  display: none;
+}
+
+.add-form h3 {
+  font-size: 24px;
+  line-height: 33px;
+  color: #333333;
+}
+
+.add-form label {
+  font-size: 14px;
+  line-height: 19px;
+  color: #4f4f4f;
+  display: block;
+  margin: 5px;
+}
+
+.add-form input {
+  width: 552px;
+  height: 55px;
+  border: 1px solid #4f4f4f;
+  box-sizing: border-box;
+  filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));
+  border-radius: 12px;
+}
+
+.add-form .submit {
+  width: 105px;
+  height: 55px;
+  background: #3db46d;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 22px;
+  border: none;
+
+  color: #ffffff;
+}
+
+.add-form .cancel {
+  font-size: 16px;
+  line-height: 22px;
+  background-color: transparent;
+  outline: none;
+  color: #bdbdbd;
+  border: none;
+}
+
+.add-form div {
+  text-align: end;
+  margin: 10px 70px 10px 10px;
+}
+
+.delete-form {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  width: 620px;
+  height: 276.12px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding-left: 10px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  display: none;
+  z-index: 2;
+}
+
+.delete-form h3 {
+  font-size: 24px;
+  line-height: 33px;
+  color: #333333;
+}
+.delete-form label {
+  font-size: 14px;
+  line-height: 19px;
+  color: #4f4f4f;
+  display: block;
+  margin: 5px;
+}
+
+.delete-form input {
+  width: 552px;
+  height: 55px;
+  border: 1px solid #4f4f4f;
+  box-sizing: border-box;
+  filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));
+  border-radius: 12px;
+}
+
+.delete-form .delete {
+  width: 105px;
+  height: 55px;
+  font-size: 16px;
+  line-height: 22px;
+  border: none;
+
+  color: #ffffff;
+  background: #eb5757;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+.delete-form .cancel {
+  font-size: 16px;
+  line-height: 22px;
+  background-color: transparent;
+  outline: none;
+  color: #bdbdbd;
+  border: none;
+}
+
+.delete-form div {
+  text-align: end;
+  margin: 10px 70px 10px 10px;
+}
