@@ -1,13 +1,17 @@
+require('dotenv').config();
 const express = require('express');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
 const debug = require('debug')('app');
-var md5 = require('md5');
+const md5 = require('md5');
 
-mongoose.connect('mongodb://localhost:27017/unsplashDB', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  `mongodb+srv://admin-ugoh:${process.env.PASSWORD}@cluster0.lirx1.mongodb.net/unsplashDB?retryWrites=true&w=majority`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 const imageSchema = new mongoose.Schema({
   name: String,
@@ -21,6 +25,7 @@ const Password = mongoose.model('Password', userSchema);
 const Image = mongoose.model('Image', imageSchema);
 
 const app = express();
+const port = process.env.PORT || 4000;
 const images = [
   {
     name: 'girl',
@@ -89,7 +94,6 @@ app.post('/add', (req, res) => {
   const newImage = new Image({ name, src: source });
   newImage.save((err, savedImage) => {
     if (!err) {
-      debug(savedImage);
       res.redirect('/');
     }
   });
@@ -104,12 +108,10 @@ app.post('/delete', (req, res) => {
       debug(err);
     } else {
       if (foundPassword) {
-        debug(foundPassword);
         Image.findByIdAndDelete(id, (err, deletedDoc) => {
           if (err) {
             debug(err);
           } else {
-            debug(deletedDoc);
             res.redirect('/');
           }
         });
@@ -125,7 +127,6 @@ app.post('/delete', (req, res) => {
               if (err) {
                 debug(err);
               } else {
-                debug(deletedDoc);
                 res.redirect('/');
               }
             });
@@ -145,7 +146,6 @@ app.post('/search', (req, res) => {
   Image.find({ name: searchName }, (err, foundImages) => {
     if (!err) {
       if (foundImages) {
-        debug(foundImages);
         res.render('searchPhotos', { images: foundImages });
       } else {
         res.redirect('/');
@@ -154,4 +154,4 @@ app.post('/search', (req, res) => {
   });
 });
 
-app.listen(4000, () => debug('Server is running on port 4000'));
+app.listen(port, () => debug(`Server is running on port ${port}`));
