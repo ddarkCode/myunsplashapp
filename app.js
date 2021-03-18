@@ -6,7 +6,7 @@ const debug = require('debug')('app');
 const md5 = require('md5');
 
 mongoose.connect(
-  `mongodb+srv://admin-ugoh:${process.env.PASSWORD}@cluster0.lirx1.mongodb.net/unsplashDB?retryWrites=true&w=majority`,
+  `mongodb+srv://admin-ugoh:${process.env.PASSWORD}@cluster0.lirx1.mongodb.net/unsplashDB`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -100,7 +100,6 @@ app.post('/add', (req, res) => {
 });
 
 app.post('/delete', (req, res) => {
-  debug(req.body);
   const password = md5(req.body.password);
   const id = req.body.id;
   Password.findOne({ password }, (err, foundPassword) => {
