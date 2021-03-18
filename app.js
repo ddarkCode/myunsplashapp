@@ -6,7 +6,9 @@ const debug = require('debug')('app');
 const md5 = require('md5');
 
 mongoose.connect(
-  `mongodb+srv://admin-ugoh:${process.env.PASSWORD}@cluster0.lirx1.mongodb.net/unsplashDB`,
+  'mongodb+srv://admin-ugoh:' +
+    process.env.PASSWORD +
+    '@cluster0.lirx1.mongodb.net/unsplashDB?retryWrites=true&w=majority',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
